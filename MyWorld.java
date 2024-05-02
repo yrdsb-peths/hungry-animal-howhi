@@ -31,7 +31,7 @@ public class MyWorld extends World
     }
     
     /**
-     * End the gmae and draw 'GameOver'
+     * End the game and draw 'GameOver'
      */
     public void gameOver()
     {
