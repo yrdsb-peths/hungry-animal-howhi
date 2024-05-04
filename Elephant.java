@@ -13,7 +13,17 @@ public class Elephant extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
+    GreenfootSound elephantSound = new GreenfootSound("elephanttrumpetgrowl.mp3");
+    GreenfootImage idle = new GreenfootImage("images/elephant_idle/idle0.png");
+    
+    /**
+     * Constructor - The code that gets run one time when object is created.
+     */
+    
+    public Elephant()
+    {
+        setImage(idle);
+    }
     public void act()
     {
         // Add your action code here.
