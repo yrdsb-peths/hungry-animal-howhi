@@ -1,19 +1,44 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Peanut here.
+ * Food our elephant wants to avoid.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Ho 
+ * @version May 2024
  */
 public class Peanut extends Actor
 {
+    int speed = 1;
+    
+    GreenfootImage peanutImage = new GreenfootImage("images/peanut.png");
     /**
      * Act - do whatever the Peanut wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        // Add your action code here.
+        peanutImage.scale(30, 30);
+        setImage(peanutImage);
+        
+        MyWorld world = (MyWorld) getWorld();
+        if(world.score < 0)
+        {
+            setLocation(getX(), getY());
+            world.gameOver();
+        }
+        else
+        {
+            setLocation(getX(), getY() + speed);
+            if(getY() >= world.getHeight())
+            {
+                world.removeObject(this);
+                world.createPeanut();
+            }
+        }
+    }
+    
+    public void setSpeed(int spd)
+    {
+        speed = spd;
     }
 }

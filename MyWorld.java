@@ -11,6 +11,8 @@ public class MyWorld extends World
     public int score = 0;
     Label scoreLabel;
     int level = 1;
+    SimpleTimer peanutTimer = new SimpleTimer();
+    int peanutSeconds = 1000;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -29,6 +31,8 @@ public class MyWorld extends World
         addObject(scoreLabel, 50, 50);
         
         createApple();
+        peanutTimer.mark();
+        createPeanut();
     }
     
     /**
@@ -53,16 +57,40 @@ public class MyWorld extends World
         }
     }
     
+    public void decreaseScore()
+    {
+        score--;
+        scoreLabel.setValue(score);        
+        if(score % 5 == 0)
+        {
+            level -= 1;
+        }
+    }
+    
     /**
      * Create a new apple at random location at top of screen
      */
     public void createApple()
     {
         Apple apple = new Apple();
-        apple.setSpeed(level);
+        apple.setSpeed(level + 1);
         int x = Greenfoot.getRandomNumber(600);
         int y = 0;
         
         addObject(apple, x, y);
+    }
+    
+    public void createPeanut()
+    {
+        Peanut peanut = new Peanut();        
+        peanut.setSpeed(level + 1);
+        int x = Greenfoot.getRandomNumber(600);
+        int y = 0;    
+        addObject(peanut, x, y);
+        if(peanutTimer.millisElapsed() < peanutSeconds)
+        {
+            return;
+        }
+        peanutTimer.mark();
     }
 }

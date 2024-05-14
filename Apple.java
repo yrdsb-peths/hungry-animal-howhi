@@ -16,15 +16,26 @@ public class Apple extends Actor
     public void act()
     {
         // Add your action code here.
-        setLocation(getX(), getY() + speed);
+        MyWorld world = (MyWorld) getWorld();
+        if(world.score < 0)
+        {
+            setLocation(getX(), getY());
+            world.gameOver();
+        }
+        else
+        {
+            setLocation(getX(), getY() + speed);
+            if(getY() >= world.getHeight())
+            {
+                world.removeObject(this);
+                world.createApple();
+            }
+        }
         
         // Remove apple and draw game over when apple gets to bottom
-        MyWorld world = (MyWorld) getWorld();
-        if(getY() >= world.getHeight())
-        {
-            world.gameOver();
-            world.removeObject(this);
-        }
+        
+        
+        
     }
     
     public void setSpeed(int spd)

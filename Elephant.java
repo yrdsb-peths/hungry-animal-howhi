@@ -13,19 +13,24 @@ public class Elephant extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    GreenfootSound elephantSound = new GreenfootSound("elephanttrumpetgrowl.mp3");
+    GreenfootSound elephantHappy = new GreenfootSound("elephanttrumpetgrowl.mp3");
+    GreenfootSound elephantSad = new GreenfootSound("elephantscream.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[8];
     GreenfootImage[] idleLeft = new GreenfootImage[8];
     
     // Direction the elephant is facing
     String facing = "right";
     SimpleTimer animationTimer = new SimpleTimer();
+    
+    
+    MyWorld world = (MyWorld) getWorld();
     /**
      * Constructor - The code that gets run one time when object is created.
      */
     
     public Elephant()
     {
+        
         for(int i = 0; i < idleRight.length; i++)
         {
             idleRight[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
@@ -44,7 +49,7 @@ public class Elephant extends Actor
         // Initial elephant image
         setImage(idleRight[0]);
         
-        
+       
     }
     
     /**
@@ -85,12 +90,11 @@ public class Elephant extends Actor
             facing = "right";
         }
         
-        // Remove apple if elephant eats it
+        // Remove apple and peanut if elephant eats it
         eat();
         
         // Animate the elephant
         animateElephant();
-        
     }
     
     
@@ -103,9 +107,19 @@ public class Elephant extends Actor
         {
             removeTouching(Apple.class);
             MyWorld world = (MyWorld) getWorld();
-            world.createApple();
             world.increaseScore();
-            elephantSound.play();
+            world.createApple();
+            elephantHappy.play();
         }
+        
+        if(isTouching(Peanut.class))
+        {
+            removeTouching(Peanut.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.decreaseScore();
+            world.createPeanut();
+            elephantSad.play();
+        }
+        
     }
 }
