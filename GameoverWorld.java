@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GameoverWorld here.
+ * The Gameover Screen.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Ho
+ * @version May 2024
  */
 public class GameoverWorld extends World
 {
@@ -27,6 +27,8 @@ public class GameoverWorld extends World
     
     public void act()
     {
+        
+        
         if(Greenfoot.isKeyDown("space"))
         {
             MyWorld gameWorld = new MyWorld();
