@@ -61,10 +61,6 @@ public class MyWorld extends World
     {
         score--;
         scoreLabel.setValue(score);        
-        if(score % 5 == 0)
-        {
-            level -= 1;
-        }
     }
     
     /**
