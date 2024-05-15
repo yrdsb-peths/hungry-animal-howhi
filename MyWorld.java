@@ -11,8 +11,8 @@ public class MyWorld extends World
     public int score = 0;
     Label scoreLabel;
     int level = 1;
-    SimpleTimer peanutTimer = new SimpleTimer();
-    int peanutSeconds = 1000;
+    
+    public int missed = 0;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -31,7 +31,6 @@ public class MyWorld extends World
         addObject(scoreLabel, 50, 50);
         
         createApple();
-        peanutTimer.mark();
         createPeanut();
     }
     
@@ -83,10 +82,5 @@ public class MyWorld extends World
         int x = Greenfoot.getRandomNumber(600);
         int y = 0;    
         addObject(peanut, x, y);
-        if(peanutTimer.millisElapsed() < peanutSeconds)
-        {
-            return;
-        }
-        peanutTimer.mark();
     }
 }
