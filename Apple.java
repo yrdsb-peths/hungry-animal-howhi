@@ -29,6 +29,7 @@ public class Apple extends Actor
             {
                 world.removeObject(this);
                 world.createApple();
+                world.applesMissed++;
             }
         }
         

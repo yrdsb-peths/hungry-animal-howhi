@@ -12,7 +12,7 @@ public class MyWorld extends World
     Label scoreLabel;
     int level = 1;
     
-    public int missed = 0;
+    public int applesMissed = 0;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -32,6 +32,14 @@ public class MyWorld extends World
         
         createApple();
         createPeanut();
+    }
+    
+    public void act()
+    {
+        if(applesMissed == 3)
+        {
+            gameOver();
+        }
     }
     
     /**
