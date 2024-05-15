@@ -11,8 +11,9 @@ public class MyWorld extends World
     public int score = 0;
     Label scoreLabel;
     int level = 1;
-    
     public int applesMissed = 0;
+    public int[] scores;
+    public int highScore;
     /**
      * Constructor for objects of class MyWorld.
      * 

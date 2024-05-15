@@ -13,6 +13,8 @@ public class GameoverWorld extends World
      * Constructor for objects of class GameoverWorld.
      * 
      */
+    
+    MyWorld world = new MyWorld();
     public GameoverWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -26,8 +28,11 @@ public class GameoverWorld extends World
     }
     
     public void act()
-    {
-        
+    {        
+        if(world.score > world.highScore);
+        {
+            
+        }
         
         if(Greenfoot.isKeyDown("space"))
         {
