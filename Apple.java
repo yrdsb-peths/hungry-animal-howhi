@@ -25,7 +25,7 @@ public class Apple extends Actor
         else
         {
             setLocation(getX(), getY() + speed);
-            if(getY() >= world.getHeight())
+            if(this.isAtEdge() == true)
             {
                 world.removeObject(this);
                 world.createApple();

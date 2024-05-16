@@ -29,7 +29,7 @@ public class Peanut extends Actor
         else
         {
             setLocation(getX(), getY() + speed);
-            if(getY() >= world.getHeight())
+            if(this.isAtEdge() == true)
             {
                 world.removeObject(this);
                 world.createPeanut();
