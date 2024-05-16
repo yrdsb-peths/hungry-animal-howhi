@@ -13,8 +13,6 @@ public class MyWorld extends World
     Label scoreLabelValue;
     int level = 1;
     public int applesMissed = 0;
-    public int[] scores;
-    public int highScores;
     public MyWorld()
     {    
         super(600, 400, 1, false);
