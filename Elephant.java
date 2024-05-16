@@ -8,13 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Elephant extends Actor
 {
-    /**
-     * Act - do whatever the Elephant wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    
+    //Different elephant sounds
     GreenfootSound elephantHappy = new GreenfootSound("elephanttrumpetgrowl.mp3");
     GreenfootSound elephantSad = new GreenfootSound("elephantscream.mp3");
+    
+    //Array of elephant idle images
     GreenfootImage[] idleRight = new GreenfootImage[8];
     GreenfootImage[] idleLeft = new GreenfootImage[8];
     
@@ -23,14 +21,9 @@ public class Elephant extends Actor
     SimpleTimer animationTimer = new SimpleTimer();
     
     
-    MyWorld world = (MyWorld) getWorld();
-    /**
-     * Constructor - The code that gets run one time when object is created.
-     */
-    
+    MyWorld world = (MyWorld) getWorld();    
     public Elephant()
     {
-        
         for(int i = 0; i < idleRight.length; i++)
         {
             idleRight[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
@@ -78,7 +71,7 @@ public class Elephant extends Actor
     }
     public void act()
     {
-        // Add your action code here.
+        // How to move the elephant
         if(Greenfoot.isKeyDown("left"))
         {
             move(-2);
@@ -103,6 +96,7 @@ public class Elephant extends Actor
      */
     public void eat()
     {
+        // if the elephant eats an apple
         if(isTouching(Apple.class))
         {
             removeTouching(Apple.class);
@@ -113,6 +107,8 @@ public class Elephant extends Actor
             elephantHappy.play();
         }
         
+        
+        // if the elephant accidentally eats a peanut
         if(isTouching(Peanut.class))
         {
             removeTouching(Peanut.class);

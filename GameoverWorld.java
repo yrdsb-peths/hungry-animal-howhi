@@ -8,18 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GameoverWorld extends World
 {
-
-    /**
-     * Constructor for objects of class GameoverWorld.
-     * 
-     */
-    
     MyWorld world = new MyWorld();
     public GameoverWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         
+        // What's showing on the gameover screen
         Label gameOverLabel = new Label("Game Over", 125);
         addObject(gameOverLabel, 300, 200);
         
@@ -28,12 +22,8 @@ public class GameoverWorld extends World
     }
     
     public void act()
-    {        
-        if(world.score > world.highScore);
-        {
-            
-        }
-        
+    {
+        // Replaying game
         if(Greenfoot.isKeyDown("space"))
         {
             MyWorld gameWorld = new MyWorld();

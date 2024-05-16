@@ -16,16 +16,13 @@ public class TitleScreen extends World
      */
     public TitleScreen()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
 
+        // Adding title screen text
         addObject(titleLabel, getWidth()/2, 200);
         prepare();
     }
 
-    /**
-     * The main world act loop
-     */
     public void act()
     {
         // Start the game if user presses the space bar
@@ -42,6 +39,7 @@ public class TitleScreen extends World
      */
     private void prepare()
     {
+        // Placing elephant and instructions on title screen.
         Elephant elephant = new Elephant();
         addObject(elephant,476,71);
         elephant.setLocation(474,91);

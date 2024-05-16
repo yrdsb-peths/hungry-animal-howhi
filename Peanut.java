@@ -10,22 +10,26 @@ public class Peanut extends Actor
 {
     int speed = 1;
     
+    // Setting peanut instance image to a peanut
     GreenfootImage peanutImage = new GreenfootImage("images/peanut.png");
-    /**
-     * Act - do whatever the Peanut wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     public void act()
     {
+        // Scaling peanut image
         peanutImage.scale(30, 30);
         setImage(peanutImage);
         
+        
         MyWorld world = (MyWorld) getWorld();
+        
+        // If score is less than 0, this stops the peanut's movement and
+        // ends the game.
         if(world.score < 0)
         {
             setLocation(getX(), getY());
             world.gameOver();
         }
+        // If score is not less than 0, this keeps the peanut's movement going.
         else
         {
             setLocation(getX(), getY() + speed);

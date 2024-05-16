@@ -8,20 +8,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Apple extends Actor
 {
-    /**
-     * Act - do whatever the Apple wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     int speed = 1;
     public void act()
     {
-        // Add your action code here.
         MyWorld world = (MyWorld) getWorld();
+        // If score is less than 0, this stops the apple's movement and
+        // ends the game.
         if(world.score < 0)
         {
             setLocation(getX(), getY());
             world.gameOver();
         }
+        // If score is not less than 0, this keeps the peanut's movement going.
         else
         {
             setLocation(getX(), getY() + speed);
@@ -32,11 +30,6 @@ public class Apple extends Actor
                 world.applesMissed++;
             }
         }
-        
-        // Remove apple and draw game over when apple gets to bottom
-        
-        
-        
     }
     
     public void setSpeed(int spd)

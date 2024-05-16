@@ -14,33 +14,33 @@ public class MyWorld extends World
     int level = 1;
     public int applesMissed = 0;
     public int[] scores;
-    public int highScore;
-    /**
-     * Constructor for objects of class MyWorld.
-     * 
-     */
+    public int highScores;
     public MyWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false);
         
         // Create the elephant object
         Elephant elephant = new Elephant();
         addObject(elephant, 300, 300);
         
-        // Create a label
+        // Create a label showing "Score: "
         scoreLabel = new Label("Score: ", 70);
         addObject(scoreLabel, 125, 50);
         
+        // Create another label showing the value of the user's score for
+        // that round.
         scoreLabelValue = new Label(0, 70);
         addObject(scoreLabelValue, 230, 50);
         
+        
+        // Spawn the apple and the peanut
         createApple();
         createPeanut();
     }
     
     public void act()
     {
+        // Game is over if elephant misses three consecutive apples
         if(applesMissed == 3)
         {
             gameOver();
@@ -69,6 +69,10 @@ public class MyWorld extends World
         }
     }
     
+    
+    /**
+     * Decrease score
+     */
     public void decreaseScore()
     {
         score--;
@@ -88,6 +92,9 @@ public class MyWorld extends World
         addObject(apple, x, y);
     }
     
+    /**
+     * Create a new peanut at random location at top of screen
+     */
     public void createPeanut()
     {
         Peanut peanut = new Peanut();        
