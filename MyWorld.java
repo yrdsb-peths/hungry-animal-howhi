@@ -10,6 +10,7 @@ public class MyWorld extends World
 {
     public int score = 0;
     Label scoreLabel;
+    Label scoreLabelValue;
     int level = 1;
     public int applesMissed = 0;
     public int[] scores;
@@ -28,8 +29,11 @@ public class MyWorld extends World
         addObject(elephant, 300, 300);
         
         // Create a label
-        scoreLabel = new Label(0, 80);
-        addObject(scoreLabel, 50, 50);
+        scoreLabel = new Label("Score: ", 70);
+        addObject(scoreLabel, 125, 50);
+        
+        scoreLabelValue = new Label(0, 70);
+        addObject(scoreLabelValue, 230, 50);
         
         createApple();
         createPeanut();
@@ -57,7 +61,7 @@ public class MyWorld extends World
     public void increaseScore()
     {
         score++;
-        scoreLabel.setValue(score);
+        scoreLabelValue.setValue(score);
         
         if(score % 5 == 0)
         {
@@ -68,7 +72,7 @@ public class MyWorld extends World
     public void decreaseScore()
     {
         score--;
-        scoreLabel.setValue(score);        
+        scoreLabelValue.setValue(score);        
     }
     
     /**
