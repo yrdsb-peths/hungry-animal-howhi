@@ -91,12 +91,13 @@ public class Elephant extends Actor
     }
     
     
-    /**
-     * Eat the apple and spawn new apple if an apple is eaten 
-     */
+    // Eating objects falling from the sky
     public void eat()
     {
-        // if the elephant eats an apple
+        /**
+         * If the elephant eats an apple, spawn a new peanut and increase
+         * score by 1.
+         */
         if(isTouching(Apple.class))
         {
             removeTouching(Apple.class);
@@ -108,7 +109,10 @@ public class Elephant extends Actor
         }
         
         
-        // if the elephant accidentally eats a peanut
+        /**
+         * If the elephant accidentally eats a peanut, spawn a new peanut
+         * and decrease score by 1.
+         */
         if(isTouching(Peanut.class))
         {
             removeTouching(Peanut.class);

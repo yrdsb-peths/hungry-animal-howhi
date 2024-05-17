@@ -83,7 +83,7 @@ public class MyWorld extends World
     public void createApple()
     {
         Apple apple = new Apple();
-        apple.setSpeed(level + 1);
+        apple.setSpeed(level);
         int x = Greenfoot.getRandomNumber(600);
         int y = 0;
         
@@ -96,7 +96,7 @@ public class MyWorld extends World
     public void createPeanut()
     {
         Peanut peanut = new Peanut();        
-        peanut.setSpeed(level + 1);
+        peanut.setSpeed(level);
         int x = Greenfoot.getRandomNumber(600);
         int y = 0;    
         addObject(peanut, x, y);
