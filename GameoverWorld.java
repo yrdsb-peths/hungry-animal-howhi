@@ -13,17 +13,18 @@ public class GameoverWorld extends World
     {    
         super(600, 400, 1); 
         
-        // What's showing on the gameover screen
+        // Show "Game Over" on the gameover screen
         Label gameOverLabel = new Label("Game Over", 125);
         addObject(gameOverLabel, 300, 200);
         
+        // Telling the user to press <space> to replay
         Label resetLabel = new Label("Press <space> to play again", 40);
         addObject(resetLabel, 300, 300);
     }
     
     public void act()
     {
-        // Replaying game
+        // Replay game by pressing <space>
         if(Greenfoot.isKeyDown("space"))
         {
             MyWorld gameWorld = new MyWorld();
