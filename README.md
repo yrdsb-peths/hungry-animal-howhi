@@ -28,4 +28,4 @@ This particular repository is the starting template for the Hungry Elephant tuto
 - Instead of showing only the value of the score while playing the game (in the *MyWorld* world), I added “Score: ” immediately before the value.
 - In the original game that I created while watching the tutorial, when the elephant fails to eat an apple, this results in the game being over. I adjusted this to make the game end in either of two scenarios: 1. Where the elephant misses 3 apples in a row. 2. If the score ever gets below 0.
 - I changed the background screen of the *TitleScreen* world to a space background. I also made a *GameoverWorld* world that shows up when the game ends. This *GameoverWorld* world has the same space background as the *TitleScreen* world. 
-- Finally, I added the feature of being able to press <space> in the *GameoverWorld* world to replay the game, instead of having to rerun the program.
+- Finally, I added the feature of being able to press *spacebar* in the *GameoverWorld* world to replay the game, instead of having to rerun the program.
